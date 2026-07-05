@@ -7,7 +7,8 @@ import notification from "../assets/notification.png";
 import profile from "../assets/jack.png";
 import { Link, useNavigate } from "react-router-dom";
 import { Search } from "lucide-react";
-const Navbar = ({setMenu}) => {
+
+const Navbar = ({setMenu , setSideBar}) => {
   const [search , setSearch] = useState("")
   const navigate = useNavigate()
 
@@ -19,9 +20,13 @@ const Navbar = ({setMenu}) => {
 
   return (
     <nav className="w-full px-5 py-1 flex justify-between items-center fixed bg-white bg-linear-150">
+
       {/* nav left section start */}
       <div className="flex gap-4 items-center">
-        <button onClick={()=> setMenu(prev => !prev)} className="text-xl hover:bg-slate-300 p-1 rounded-full cursor-pointer duration-300">
+        <button onClick={()=> {
+          setSideBar(prev => !prev)
+          setMenu(prev => !prev)
+        }}  className="text-xl hover:bg-slate-300 p-1 rounded-full cursor-pointer duration-300">
           &#9776;
         </button>
         <Link to={'/'}>
@@ -32,7 +37,7 @@ const Navbar = ({setMenu}) => {
 
       {/* nav middle section start */}
       <div className="flex items-center gap-3">
-        <div className="flex items-center w-[500px] border border-slate-300 rounded-full pl-3">
+        <div className="flex items-center md:w-[500px] border border-slate-300 rounded-full pl-3">
           <input
             type="text"
             placeholder="Search"
@@ -49,7 +54,7 @@ const Navbar = ({setMenu}) => {
             <img src={search_Icon} className="h-5" />
           </div>
         </div>
-        <div className="w-8 h-8 rounded-full p-1 bg-slate-100 flex justify-center items-center cursor-pointer">
+        <div className="w-8 h-8 rounded-full p-1 bg-slate-100 hidden md:flex justify-center items-center cursor-pointer">
           <img src={voice_Icon} className="h-6" />
         </div>
       </div>
@@ -57,12 +62,12 @@ const Navbar = ({setMenu}) => {
 
       {/* nav right section start */}
       <div className="flex gap-4 justify-between items-center">
-        <div className="flex gap-2 items-center bg-slate-100 px-3 py-0.5 rounded-full cursor-pointer hover:bg-slate-200 ">
+        <div className="hidden md:flex gap-2 items-center bg-slate-100 px-3 py-0.5 rounded-full cursor-pointer hover:bg-slate-200">
           <h1 className="text-xl">+</h1>
           <p>Create</p>
         </div>
-        <div>
-          <img src={notification} className="h-7" />
+        <div className="hidden md:flex items-center cursor-pointer">
+          <img src={notification} className="h-7 hidden md:flex" />
         </div>
         <div className="w-7 h-7 rounded-full">
           <img src={profile} className="rounded-full" />

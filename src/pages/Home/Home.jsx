@@ -8,8 +8,8 @@ const Home = ({menu}) => {
   return (
     <div className='w-full flex gap-3'>
       <Sidebar menu = {menu} category={category} setCategory={setCategory}/>
-      
-      <div className={`${menu ? "ml-50" : "ml-20"} mt-2`}>
+
+      <div className={`${menu ? "md:ml-50" : "md:ml-20"}  mt-2`}>
         <Main category={category}/>
       </div>
     </div>

@@ -7,17 +7,18 @@ import Search from "./pages/Search/Search";
 
 const App = () => {
   const [menu, setMenu] = useState(true);
+  const [sideBar , setSideBar] = useState(true);
 
   return (
     <div className="flex flex-col h-screen">
 
       {/* Navbar stays fixed at top */}
-      <Navbar setMenu={setMenu} />
+      <Navbar setMenu={setMenu} setSideBar={setSideBar}/>
 
       {/* Main layout below navbar */}
 
         <Routes>
-          <Route path="/" element={<Home menu={menu} />} />
+          <Route path="/" element={<Home menu={menu} sideBar={sideBar}/>} />
           <Route path="/video/:categoryId/:videoId" element={<Video />} /> || <Route path="/video/:videoId" element={<Video />} />
           <Route path="/search/:query" element={<Search menu = {menu}/>} />
         </Routes>
