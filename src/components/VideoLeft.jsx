@@ -153,7 +153,7 @@ const VideoLeft = ({ videoId }) => {
   return (
     <div className="w-full p-3 mt-9 ">
       <iframe
-        className="w-full h-[200px] rounded-lg"
+        className="w-full h-[200px] md:h-[350px] rounded-lg"
         src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&controls=1&rel=0&modestbranding=1&playsinline=1`}
         title="YouTube video player"
         frameBorder="0"
