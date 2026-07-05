@@ -95,17 +95,17 @@ const VideoRight = ({categoryId}) => {
   },[categoryId])
 
   return (
-    <div className='w-full px-3 mt-9 py-2'>
+    <div className='w-full px-3 md:mt-9 mt-1 py-2'>
         {apiData.map((item,index)=>(
         <Link key={index} to={`/video/${item.snippet.categoryId}/${item.id}`}>
-          <div className='pl-1 hover:bg-slate-200 cursor-pointer grid grid-cols-2 gap-2 mt-1 px-2 rounded-md duration-300'>
-            <img src={item.snippet.thumbnails.medium.url} className='rounded-md' />
+          <div className='pl-1 hover:bg-slate-200 bg-gray-200 cursor-pointer grid grid-cols-1 md:grid-cols-2 gap-2 mt-1 px-2 rounded-md duration-300'>
+            <img src={item.snippet.thumbnails.medium.url} className='rounded-md w-full' />
             <div>
                 <h4 className='font-semibold text-sm line-clamp-2'>{item.snippet.title}</h4>
                 <p className='text-[12px]'>{item.snippet.channelTitle}</p>
                 <p className='text-[12px]'>{value_converter(item.statistics.viewCount)} views • {moment(item.snippet.publishedAt).fromNow()}</p>
             </div>
-        </div>
+          </div>
         </Link>
         ))}
     </div>

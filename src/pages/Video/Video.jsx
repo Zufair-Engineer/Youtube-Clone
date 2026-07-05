@@ -7,7 +7,7 @@ import { Link, Route, useParams } from 'react-router-dom'
 const Video = () => {
   const {videoId , categoryId} = useParams()
   return (
-    <div className='flex px-12'>
+    <div className='grid md:grid-cols-[63%_auto]'>
       <VideoLeft videoId={videoId}/>
       {(categoryId) ? <VideoRight categoryId={categoryId}/> : <VideoRight videoId={videoId} />}
     </div>

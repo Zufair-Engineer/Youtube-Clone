@@ -153,8 +153,8 @@ const VideoLeft = ({ videoId }) => {
   return (
     <div className="w-full p-3 mt-9 ">
       <iframe
-        className="w-[700px] h-[400px] rounded-lg"
-        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=1&rel=0&modestbranding=1&playsinline=1`}
+        className="w-full h-[200px] rounded-lg"
+        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&controls=1&rel=0&modestbranding=1&playsinline=1`}
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -165,7 +165,7 @@ const VideoLeft = ({ videoId }) => {
         {apiData?apiData.snippet.title: "title here"}
       </h2>
 
-      <div className="flex mt-2 items-center justify-between w-[700px] px-1">
+      <div className="flex flex-col md:flex-row mt-2 md:items-center gap-3 justify-between md:w-[700px] px-1">
         <div className="flex gap-2">
           <img src={channelData?channelData.snippet.thumbnails.default.url: "Img"} className="w-10 h-10 rounded-full" />
           <div className="flex flex-col">
@@ -200,11 +200,11 @@ const VideoLeft = ({ videoId }) => {
             </div>
             <span>
               <img src={share_Icon} className="h-5 cursor-pointer " />
-              Share
+              <p className="text-[10px] md:text-sm">Share</p>
             </span>
             <span>
               <img src={save_Icon} className="h-5 cursor-pointer" />
-              Save
+              <p className="text-[10px] md:text-sm">Save</p>
             </span>
           </div>
         </div>
@@ -215,7 +215,7 @@ const VideoLeft = ({ videoId }) => {
         <div className="">
           <h1 className="font-bold text-sm">{apiData?value_converter(apiData.statistics.viewCount): "16k"} views &bull;{apiData ? moment(apiData.snippet.publishedAt).fromNow() : ""}</h1>
         </div>
-        <p>
+        <p className="line-clamp-8">
           {apiData?apiData.snippet.description.slice(0,700):"Description Here"}
         </p>
       </div>
@@ -225,7 +225,7 @@ const VideoLeft = ({ videoId }) => {
 
       {/* comment section */}
       {commentData.map((item, index) => (
-        <div key={index} className="w-full p-2 flex gap-2 items-start">
+        <div key={index} className="w-full p-2 hidden md:flex gap-2 items-start">
           <img src={item?.snippet?.topLevelComment?.snippet?.authorProfileImageUrl} className="h-8 rounded-full mt-1" />
           <div className="flex flex-col gap-1">
             <h4 className="text-sm font-bold">
