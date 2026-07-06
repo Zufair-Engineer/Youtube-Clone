@@ -5,8 +5,8 @@ import moment from "moment";
 import  Sidebar  from "../../components/Sidebar.jsx";
 
 const Search = ({menu}) => {
-    const [category , setCategory] = useState(0)
-    const {categoryId} = useParams()
+  const [category , setCategory] = useState(0)
+  const {categoryId} = useParams()
   const [result, setResult] = useState([]);
   const { query } = useParams();
 
@@ -27,15 +27,15 @@ const Search = ({menu}) => {
 
   return (
     <div className="p-1 w-full flex gap-3">
-      <div className="fixed left-3 top-14 h-full">
+      <div className="hidden md:block md:fixed left-3 top-14 h-full">
         <Sidebar menu={menu} category={category} setCategory={setCategory} />
       </div>
-      <div className={`flex flex-col gap-3 ${menu ? "ml-50" : "ml-20"} mt-9 w-full`}>
+      <div className={`flex flex-col gap-3 mt-12 md:mt-14 md:${menu ? "ml-50" : "ml-20"}  w-full`}>
         {result.map((item) => (
           <Link
             key={item.id.videoId}
             to={`/video/${item.id.videoId}`}
-            className="flex gap-3 hover:bg-slate-200 p-2 rounded-md"
+            className="flex flex-col md:flex-row gap-3 hover:bg-slate-200 p-2 rounded-md"
           >
             <img
               src={item.snippet.thumbnails.medium.url}
