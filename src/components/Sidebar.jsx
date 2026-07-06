@@ -14,15 +14,16 @@ import cameron_Icon from "../assets/cameron.png";
 import jack_Icon from "../assets/jack.png";
 import megan_Icon from "../assets/megan.png";
 
-const Sidebar = ({ menu, category, setCategory , sideBar }) => {
+const Sidebar = ({ menu, category, setCategory }) => {
   const hidden = menu ? "block" : "hidden";
   return (
     <div
       className={`
     fixed
     top-16
-    md:left-4
-    sm:z-50
+    left-4
+    z-50
+    md:z-0
     duration-300
     ${menu ? "w-0 md:w-40" : `w-40  md:w-10`}
     h-[calc(100vh-64px)]

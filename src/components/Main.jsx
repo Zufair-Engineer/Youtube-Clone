@@ -20,17 +20,17 @@ const Main = ({ category }) => {
   
 
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-3 mt-9 gap-1 overflow-hidden p-2">
+    <div className="w-full grid grid-cols-1 md:grid-cols-3 mt-9 gap-1 p-2">
       {data.map((item, index) =>
           <Link key={index} to={`/video/${item.snippet.categoryId}/${item.id}`}>
             <div className="rounded-md  hover:bg-slate-300 cursor-pointer duration-150 flex flex-col justify-center">
               <div className="p-3 w-full">
-                <img src={item.snippet.thumbnails.medium.url} className="rounded-lg w-full" />
+                <img src={item.snippet.thumbnails.medium.url} className="rounded-lg w-full object-cover" />
               </div>
               <div className="flex gap-2 mt-1">
                 <img src={item.snippet.thumbnails.default.url}  className="w-7 h-7 rounded-full" />
                 <div className="flex-1 min-w-0">
-                  <h2 className="font-bold wrap-break-word line-clamp-2">{item.snippet.title}</h2>
+                  <h2 className="font-bold line-clamp-2">{item.snippet.title}</h2>
                 </div>
               </div>
               <p className="ml-9">{item.snippet.channelTitle}</p>

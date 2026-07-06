@@ -22,7 +22,7 @@ const Navbar = ({setMenu , setSideBar}) => {
     <nav className="w-full px-5 py-1 flex justify-between items-center fixed bg-white bg-linear-150">
 
       {/* nav left section start */}
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-1 md:gap-4 items-center">
         <button onClick={()=> {
           setSideBar(prev => !prev)
           setMenu(prev => !prev)
@@ -37,7 +37,7 @@ const Navbar = ({setMenu , setSideBar}) => {
 
       {/* nav middle section start */}
       <div className="flex items-center gap-3">
-        <div className="flex items-center md:w-[500px] border border-slate-300 rounded-full pl-3">
+        <div className="flex items-center  md:w-[500px] border border-slate-300 rounded-full pl-3">
           <input
             type="text"
             placeholder="Search"
@@ -48,14 +48,14 @@ const Navbar = ({setMenu , setSideBar}) => {
                 handleSearch()
               }
             }}
-            className=" w-full outline-none py-1"
+            className=" w-[50px] md:w-full outline-none py-1"
           />
           <div onClick={handleSearch} className="w-[60px] flex justify-center bg-slate-100 items-center p-1 rounded-r-full cursor-pointer">
             <img src={search_Icon} className="h-5" />
           </div>
         </div>
         <div className="w-8 h-8 rounded-full p-1 bg-slate-100 hidden md:flex justify-center items-center cursor-pointer">
-          <img src={voice_Icon} className="h-6" />
+          <img src={voice_Icon} className="h-6 hidden md:flex" />
         </div>
       </div>
       {/* nav middle section end */}
